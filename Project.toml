@@ -1,0 +1,10 @@
+name = "SparseHelper"
+uuid = "f3a006e0-511c-497b-bb7d-3b4f2bf8d272"
+authors = ["lhellemo "]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DataFramesMeta = "1313f7d8-7da2-5740-9ea0-a2ca25f37964"
+JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
