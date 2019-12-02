@@ -8,14 +8,8 @@ end
 
 function select(ts_in,criterion::NamedTuple)
     ts = copy(ts_in)
-    if length(criterion) == 1
-        for k in keys(criterion)
-            ts = filter!(x->(x[k]==criterion[k]),ts) 
-        end
-    else
-        for k in keys(criterion)
-            ts = filter!(x->(x[k]==criterion[k]),ts)
-        end
+    for k in keys(criterion)
+        ts = filter!(x->(x[k]==criterion[k]),ts)
     end
     return ts
 end
