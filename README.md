@@ -4,7 +4,7 @@ Playground to experiment with convenience functions for working efficiently with
 
 ## Examples
 
-For large numbers of dimensions and indices, problem construction is much more efficient when creating just the necessary variables:
+For large numbers of dimensions and indices, problem construction is [much more efficient when creating just the necessary variables](https://discourse.julialang.org/t/working-efficiently-with-sparse-variables-in-jump/32240/):
 
 ```julia
 using SparseHelper, JuMP
@@ -16,6 +16,13 @@ m = Model()
 @variable(m, x[i=I,j=J[i],k=K[i,j]])
 
 ```
+
+WIP: Macro to create sparse variables directly:
+```julia
+m = Model()
+@sparsevariable(m,x[i,j,k] for (i,j,k) in ts)
+```
+
 
 Alternatively, one may wish to create the variables over the tuples directly:
 
@@ -48,20 +55,6 @@ WIP: For convenience, sum over tuples that match the search criterion:
 @constraint(m,sum_where(y,(:*,:*,5)) <=10)
 ```
 
-## TO DO/Wishlist
-
-- [ ] Create sparse @variable by simple iteration (like for @constraint)
-- [ ] Create sparse @variable using generator-style syntax
-- [x] Generate dicts to create sparse @variable
-- [x] Select from tuples Gurobi style
-- [x] Select from named tuples by name
-- [ ] Select from @variable tuples (missing direct access to keys) 
-- [ ] Select from @variable named tuples by name 
-- [ ] Sum where select by index
-- [ ] Sum where select by name
-- [ ] Tests
-- [ ] Documentation
-
 ## Feedback
 
-Feedback, suggestions and pointers on how to work more elegantly and efficiently with sparse structures in JuMP is welcome!
+Feedback and suggestions for improvements is welcome!
