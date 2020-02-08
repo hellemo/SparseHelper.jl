@@ -28,4 +28,6 @@ end
     @test typeof(m[:y][100,200]) == VariableRef
     @sparsevariable(m,z[u] for u = [1,10])
     @test typeof(m[:z][1]) == VariableRef
+    @sparsevariable(m, d[k,j,i] for (i,j,k) in ts) # switch order
+    @test name(m[:d][5,3,:C]) == "d[5, 3, C]"
 end

@@ -7,7 +7,6 @@ using JuMP
 module SparseHelper
 
 include("helper.jl")
-include("dummydata.jl")
 include("convenient.jl")
 include("macros.jl")
 
